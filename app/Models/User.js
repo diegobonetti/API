@@ -37,6 +37,9 @@ class User extends Model {
   customer(){
     return this.belongsTo("App/Models/Customer", 'id', 'user_id');
   }
+  instructor(){
+    return this.belongsTo("App/Models/Instructor", 'id', 'instructor_id');
+  }
 }
 
 module.exports = User

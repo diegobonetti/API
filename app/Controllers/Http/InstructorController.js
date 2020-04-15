@@ -2,6 +2,8 @@
 
 const UserUtils = use('App/Utils/UserUtils')
 
+const User = use('App/Models/User')
+
 const Instructor = use('App/Models/Instructor')
 
 const Database = use('Database')
@@ -38,6 +40,36 @@ class InstructorController {
         }).first();
 
         return union;  */
+    }
+
+    async readOne({params}){
+        return await Instructor
+            .query()
+            .with('user')
+            .with('activity')
+            .where('instructors.id', params.id)
+            .fetch()
+    }
+
+    async readAll({request}){
+        return await Instructor
+            .query()
+            .with('user')
+            .with('activity')
+            .fetch()
+    }
+
+    async remove({params}){
+
+        let instructor = await Instructor
+            .find(params.id);
+
+        let user = await User
+            .find(instructor.user_id);
+
+        await user.delete();
+        await instructor.delete();
+
     }
 
     

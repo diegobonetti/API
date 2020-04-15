@@ -6,7 +6,7 @@ const Model = use('Model')
 class Class extends Model {
 
     instructor(){
-        return this.hasOne('App/Models/Instructor');
+        return this.belongsTo('App/Models/Instructor');
     }
 
 }

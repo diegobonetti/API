@@ -13,6 +13,7 @@ class ActivityController {
         return activity;
     }
 
+
 }
 
 module.exports = ActivityController

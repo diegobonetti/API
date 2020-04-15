@@ -11,11 +11,16 @@ class Instructor extends Model {
             .pivotTable('instructor_activities')
     }
 
-    instructor() {
+    class() {
         return this
-            .belongsToOne('App/Models/Instructor', 'id', 'instructor_id')
-            
+            .hasMany('App/Models/Class')       
     }
+
+    user(){
+        return this.belongsTo('App/Models/User')
+    }
+
+
 
 }
 

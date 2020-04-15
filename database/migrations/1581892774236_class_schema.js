@@ -12,7 +12,7 @@ class ClassSchema extends Schema {
       table.integer('end_time').notNullable()
       table.string('days_of_week', 7).notNullable()
       table.string('room', 60).notNullable()
-      table.integer('instructor_id').unsigned().references('id').inTable('instructors')
+      table.integer('instructor_id').unsigned().references('id').inTable('instructors').onUpdate('CASCADE').onDelete('CASCADE')
     })
   }
 

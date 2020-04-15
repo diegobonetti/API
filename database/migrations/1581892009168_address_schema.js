@@ -13,7 +13,7 @@ class AddressSchema extends Schema {
       table.string('neightboor', 100).notNullable()
       table.string('zip', 8).notNullable()
       table.bigInteger('number').notNullable()
-      table.string('complement', 8).notNullable()
+      table.string('complement', 100).notNullable()
     })
   }
 

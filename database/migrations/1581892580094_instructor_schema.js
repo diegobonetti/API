@@ -8,7 +8,7 @@ class InstructorSchema extends Schema {
     this.create('instructors', (table) => {
       table.increments()
       table.timestamps()
-      table.integer('user_id').unsigned().references('id').inTable('users')
+      table.integer('user_id').unsigned().references('id').inTable('users').onUpdate('CASCADE').onDelete('CASCADE')
     })
   }
 

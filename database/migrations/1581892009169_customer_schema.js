@@ -9,8 +9,8 @@ class CustomerSchema extends Schema {
       table.increments()
       table.timestamps()
       table.string('registration', 10).notNullable()
-      table.integer('address_id').unsigned().references('id').inTable('addresses')
-      table.integer('user_id').unsigned().references('id').inTable('users')
+      table.integer('address_id').unsigned().references('id').inTable('addresses').onUpdate('CASCADE').onDelete('CASCADE')
+      table.integer('user_id').unsigned().references('id').inTable('users').onUpdate('CASCADE').onDelete('CASCADE')
     })
   }
 

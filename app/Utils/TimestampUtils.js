@@ -10,7 +10,10 @@ module.exports = class TimestampUtils{
 
     async timestampToTime(timestamp){
         const hours = Math.floor(timestamp / 60);
-        const minutes = timestamp % 60;
+        let minutes = timestamp % 60;
+        if (minutes == 0){
+            minutes = '00';
+        }
         return hours + ":" + minutes;
     }
 }

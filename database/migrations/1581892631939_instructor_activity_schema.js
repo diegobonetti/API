@@ -8,8 +8,8 @@ class InstructorActivitySchema extends Schema {
     this.create('instructor_activities', (table) => {
       table.increments()
       table.timestamps()
-      table.integer('instructor_id').unsigned().references('id').inTable('instructors')
-      table.integer('activity_id').unsigned().references('id').inTable('activities')
+      table.integer('instructor_id').unsigned().references('id').inTable('instructors').onUpdate('CASCADE').onDelete('CASCADE')
+      table.integer('activity_id').unsigned().references('id').inTable('activities').onUpdate('CASCADE').onDelete('CASCADE')
     })
   }
 
